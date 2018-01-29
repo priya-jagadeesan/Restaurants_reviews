@@ -1,0 +1,23 @@
+<button id="new" (click)="gotoWrite()">New Review</button>
+<div>
+  <h2>Reviews for <span style="color:brown">{{ restaurant_name }}</span></h2>
+</div>
+<router-outlet></router-outlet>
+<p *ngIf="delOrRetrErrors">{{ delOrRetrErrors }}</p>
+<table>
+  <thead>
+    <tr>
+      <th class="head">Customer</th>
+      <th class="head">Stars</th>
+      <th class="head">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="review" *ngFor="let review of reviews">
+      <td>{{ review.customer_name }}</td>
+      <td>{{ review.stars }}</td>
+      <td>{{ review.content }}</td>
+    </tr>
+  </tbody>
+</table>
+<button (click)="gotoCancel()">Cancel</button>

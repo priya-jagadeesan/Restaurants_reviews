@@ -1,0 +1,31 @@
+<p *ngIf="delOrRetrErrors">{{ delOrRetrErrors }}</p>
+<div class='list'>
+  <button id="new" [routerLink]="['new']">New restaurant</button>
+  <table>
+    <thead>
+      <tr>
+        <th class="head">Restaurant</th>
+        <th class="head">Cuisine</th>
+        <th class="head">Actions available</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="restaurant" *ngFor="let restaurant of restaurants">
+        <td>{{ restaurant.name }}</td>
+        <td>{{ restaurant.cuisine }}</td>
+        <td>
+          <button (click)="getReviews(restaurant._id)">Read reviews</button>
+          <button (click)="updateRestaurant(restaurant)">Update</button>
+          <!-- <p>{{ restaurant.created_at.getSeconds() }}</p> -->
+          <!-- <timer interval="1000">{{hours}} hour{{hoursS}}, {{minutes}} minute{{minutesS}}, {{seconds}} second{{secondsS}}</timer> -->
+          <!-- <div *ngIf="restaurant.time_diff"> -->
+            <button (click)="deleteRestaurant(restaurant._id)" [disabled]="restaurant.time_diff">Delete</button>
+          <!-- </div> -->
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div *ngIf="edit" class='edit'>
+  <app-edit-restaurants [editRestaurant]="editRestaurant" (restaurantEmitter)="editRefresh($event)"></app-edit-restaurants>
+</div>

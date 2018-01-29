@@ -1,0 +1,22 @@
+<h2>Create a new restaurant</h2>
+
+<form style="display:inherit" (submit)="createRestaurant()">
+  Restaurant Name :
+  <input type="text" name="new_Restaurant.name" [(ngModel)]="new_Restaurant.name" />
+  <br>
+  <br>
+  <p class="error" *ngIf="new_nameErrors">
+    {{ new_nameErrors }}
+  </p>
+  Cuisine:
+  <input type="text" name="new_Restaurant.cuisine" [(ngModel)]="new_Restaurant.cuisine" />
+  <br>
+  <br>
+  <p class="error" *ngIf="new_cuisineErrors">
+    {{ new_cuisineErrors }}
+  </p>
+  <br>
+  <br>
+  <input id="submit" type="submit" value="Register">
+</form>
+<button style="display:inline-block" (click) = "onCancel()">Cancel</button>

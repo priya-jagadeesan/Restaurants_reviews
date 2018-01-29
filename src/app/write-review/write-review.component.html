@@ -1,0 +1,43 @@
+<!-- <div> -->
+<h2>Write a review for <span style="color: maroon"> {{ restaurant.name }} </span></h2>
+<form style="display: inherit" (submit)="createReview()">
+  Your name:
+  <input type="text" name="new_Review.customer_name" [(ngModel)]="new_Review.customer_name" />
+  <br>
+  <br>
+  <p class="error" *ngIf="new_nameErrors">
+    {{ new_nameErrors }}
+  </p>
+
+  Your Ratings :
+  <select [ngModel]="new_Review.in_star" (ngModelChange)="onChangeStar($event)" name="sele">
+    <option *ngFor="let x of star" [value]="x.val">{{x.val}}</option>
+  </select>
+  <br>
+  <!-- <star-rating-comp [starType]="'svg'" [size]="'small'" [rating]="2.63"></star-rating-comp> -->
+  <!-- <star-rating-comp [starType]="'svg'" [size]="'small'" (onClick)="ctrl.onClick($event)"></star-rating-comp> -->
+  <!-- <star-rating-comp [hoverEnabled]="true" (onHoverRatingChange)="ctrl.onHoverRatingChange($event)"></star-rating-comp> -->
+  <!-- <star-rating-comp   [starType]="'svg'" 
+  [hoverEnabled]="true"
+  (onClick)="onClick($event)" 
+  (onRatingChange)="onRatingChange($event)"
+  (onHoverRatingChange)="onHoverRatingChange($event)">                             
+</star-rating-comp>
+<p>onHoverRatingChangeResult: {{onHoverRatingChangeResult | json}}</p>
+<p>onClickResult: {{onClickResult | json}}</p>
+<p>onRatingChangeResult: {{onRatingChangeResult | json}}</p> -->
+  <br> 
+  Your review :
+  <input type="text" name="new_Review.content" [(ngModel)]="new_Review.content" />
+  <br>
+  <br>
+  
+  <p class="error" *ngIf="new_contentErrors">
+    {{ new_contentErrors }}
+  </p>
+  <br>
+  <br>
+  <input id="submit" type="submit" value="Submit">
+</form>
+<button style="display:  inline-block" (click)="cancelCreate()">Cancel</button>
+<!-- </div> -->
